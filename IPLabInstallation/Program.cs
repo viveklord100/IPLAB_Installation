@@ -24,14 +24,51 @@ namespace IPLabInstallation
             defaultPassword.SetValue("DefaultPassWord", "t2pmbHtg2.");
 
             //Sets PDC number used for installation
-            RegistryKey pdcversion = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Wow6432Node\PMS\Fusion\CInfraRegistrar_Installation\SystemBOM",true);
-            pdcversion.SetValue("PDCVersion", sysconfig["PDC"]);
+            //RegistryKey pdcversion = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Wow6432Node\PMS\Fusion\CInfraRegistrar_Installation\SystemBOM",true);
+            //pdcversion.SetValue("PDCVersion", sysconfig["PDC"]);
 
             //Sets the Environment variable to pull IP software
             if (sysconfig["PROJECT"] == "TIGER")
             {
                 Environment.SetEnvironmentVariable("IPSWPROJECT", "Allura_Main_IPSW_PreInt", EnvironmentVariableTarget.Machine);
-                Environment.SetEnvironmentVariable("IPSWPROJECT", "Allura_Main_IPSW_PreInt", EnvironmentVariableTarget.Process);                
+                Environment.SetEnvironmentVariable("IPSWPROJECT", "Allura_Main_IPSW_PreInt", EnvironmentVariableTarget.Process);
+
+                Environment.SetEnvironmentVariable("INFRASOURCE", "Allura_Main_Infra_PreInt", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("INFRASOURCE", "Allura_Main_Infra_PreInt", EnvironmentVariableTarget.Process);
+
+                Environment.SetEnvironmentVariable("AUIPROJECT", "Allura_Main_AUI_PreInt", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("AUIPROJECT", "Allura_Main_AUI_PreInt", EnvironmentVariableTarget.Process);
+
+                Environment.SetEnvironmentVariable("NAS", "161.85.22.42", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("NAS", "161.85.22.42", EnvironmentVariableTarget.Process); 
+            }
+            if (sysconfig["PROJECT"] == "TIGER+")
+            {
+                Environment.SetEnvironmentVariable("IPSWPROJECT", "Allura_Main_IPSW_PreInt", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("IPSWPROJECT", "Allura_Main_IPSW_PreInt", EnvironmentVariableTarget.Process);
+
+                Environment.SetEnvironmentVariable("INFRASOURCE", "Allura_Main_Infra_PreInt", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("INFRASOURCE", "Allura_Main_Infra_PreInt", EnvironmentVariableTarget.Process);
+
+                Environment.SetEnvironmentVariable("AUIPROJECT", "Allura_Main_AUI_PreInt", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("AUIPROJECT", "Allura_Main_AUI_PreInt", EnvironmentVariableTarget.Process);
+
+                Environment.SetEnvironmentVariable("NAS", "161.85.22.42", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("NAS", "161.85.22.42", EnvironmentVariableTarget.Process);
+            }
+            if (sysconfig["PROJECT"] == "JAGUAR")
+            {
+                Environment.SetEnvironmentVariable("IPSWPROJECT", "ICC-IPSW-uIPSW", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("IPSWPROJECT", "ICC-IPSW-uIPSW", EnvironmentVariableTarget.Process);
+
+                Environment.SetEnvironmentVariable("INFRASOURCE", "ICC-Infra-uInfra", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("INFRASOURCE", "ICC-Infra-uInfra", EnvironmentVariableTarget.Process);
+
+                Environment.SetEnvironmentVariable("AUIPROJECT", "ICC-AUI-uAUI", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("AUIPROJECT", "ICC-AUI-uAUI", EnvironmentVariableTarget.Process);
+
+                Environment.SetEnvironmentVariable("NAS", "161.85.22.42", EnvironmentVariableTarget.Machine);
+                Environment.SetEnvironmentVariable("NAS", "161.85.22.42", EnvironmentVariableTarget.Process);
             }
             else if (sysconfig["PROJECT"]=="LION")
             {
